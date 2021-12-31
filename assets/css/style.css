@@ -1,0 +1,76 @@
+/* Aufgabenstellung
+
+Der HTML-Code befindet sich im Kommentarbereich:
+Der erste Buchstabe des HTML-Tags <h3> hat die Farbe #00796B und die Schriftgröße 3em
+Beim Hovern hat der erste Buchstabe des HTML-Tags <h3> die Farbe #4FC3F7
+Der erste Buchstabe des ersten Listenelements hat die Farbe #4FC3F7, die Schriftgröße 2em und ist überstrichen
+Der erste Buchstabe des zweiten Listenelements hat die Farbe #C51162, die Schriftgröße 2em und ist unterstrichen
+Der erste Buchstabe des letzten Listenelements hat die Farbe #64DD17 und die Schriftgröße 2em
+Das letzte Listenelement ist durchgestrichen
+Der erste Absatz hat #37474F-Farbe und 50px Einzug (text-indent)
+Die erste Zeile des ersten Absatzes hat eine Schriftgröße von 1.3em
+Alle ersten Buchstaben der Absätze mit Ausnahme des ersten haben die Schriftfarbe #D50000 und eine Schriftgröße von 1.5em.
+Alle Absätze mit Ausnahme des ersten Absatzes sind in der ersten Zeile grün
+Beim Hovern hat die erste Zeile der Absätze mit Ausnahme der ersten die Schriftfarbe #303F9F
+Jeder gerade Absatz hat ein font weight von 600 */
+
+h3::first-letter{
+    color: #00796B;
+    font-size: 3em;
+}
+
+h3:hover::first-letter{
+    color: #4FC3F7;
+}
+
+li:nth-of-type(1)::first-letter{
+    font-size: 2em;
+    text-decoration: overline;
+    color: #4FC3F7;
+}
+
+li:nth-of-type(2)::first-letter{
+    font-size: 2em;
+    text-decoration: underline;
+    color: #C51162;
+}
+
+li:nth-of-type(3)::first-letter{
+    font-size: 2em;
+    text-decoration: line-through;
+    color: #64DD17;
+}
+
+p:nth-of-type(1){
+    color:#37474F;
+    text-indent: 50px;
+}
+
+p:nth-of-type(1)::first-line{
+    font-size: 1.3em;
+}
+
+/* p:not(:nth-of-type(1))::first-letter{
+    color: #D50000;
+    font-size: 1.5em;
+} */
+
+/* mit 1n wird jedes element angesprochen, das +2 gibt an, an welcher stelle begonen wird.
+das erste p wird dabei übersprungen. */
+
+p:nth-of-type(1n+2)::first-letter{
+    color: #D50000;
+    font-size: 2em;
+}
+
+p:nth-of-type(1n+2)::first-line{
+    color: green;
+}
+
+p:nth-of-type(1n+2):hover::first-letter{
+    color: #303F9F;
+}
+
+p:nth-of-type(even){
+    font-weight: 600;
+}
